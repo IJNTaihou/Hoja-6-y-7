@@ -1,1 +1,84 @@
+//Hoja 6.Ejercicio 1
+#include <iostream>
+#include <conio.h>
 
+using namespace std;
+
+int main()
+{
+	//ENTRADA
+
+	int n;
+	float a;
+	float b;
+	float s;
+	int k;
+	int z;
+	int n1;
+
+	s = 0;
+	k = 1;
+	z = 1;
+
+	/*RESTRICCIONES
+	4 <= a <= 6
+	1 <= b <= 3*/
+
+	//LOGICA Y SALIDA
+    do
+	{
+		printf("Ingrese el valor de n: ");
+		cin >> n;
+
+		if (n > 0 && n <= 10)
+		{
+			do
+			{
+				printf("Ingrese el valor de a: ");
+				cin >> a;
+
+				if (a >= 4 && a <= 6)
+				{
+					do
+					{
+						printf("Ingrese el valor de b: ");
+						cin >> b;
+
+						if (b >= 1 && b <= 3)
+						{
+							while (k <= n)
+							{
+								z = z * (k);
+								s = s + (pow(-1, k + 1)*pow(a, k)*pow(b, k + 1)) / ((a - b)*(z));
+								k++;
+							}
+							cout << "El valord de la sumatoria es S= " << s;  
+
+							_getch();
+							return 0;
+						}
+						else
+						{
+							printf("ERROR! \n");
+							n1 = 3;
+						}
+					} while (n1 = 3);
+				}
+				else
+				{
+					printf("ERROR! \n");
+					n1 = 2;
+				}
+
+
+			} while (n1 == 2);
+		}
+		else
+		{
+			printf("ERROR! \n");
+			n1 = 1;
+		}
+	} while (n1 == 1);
+
+	_getch();
+}
