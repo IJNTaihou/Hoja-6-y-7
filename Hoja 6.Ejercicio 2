@@ -7,7 +7,7 @@ int main() {
 	//ENTRADA
 	int n;
 	double suma = 0;
-	double sumaT;
+	double sumaTotal;
 
 	//LOGICA
 	do
@@ -22,8 +22,8 @@ int main() {
 	}
 
 	//SALIDA
-	sumaT = 4 * suma;
-	cout << "Suma: " << sumaT << endl;;
+	sumaTotal = 4 * suma;
+	cout << "Suma: " << sumaTotal << endl;;
 
 	_getch();
 }
