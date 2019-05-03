@@ -1,1 +1,29 @@
+//Hoja 6.Ejercicio 2
+#include <iostream>
+#include <conio.h>
 
+using namespace std;
+int main() {
+	//ENTRADA
+	int n;
+	double suma = 0;
+	double sumaT;
+
+	//LOGICA
+	do
+	{
+		cout << "Ingrese N: " << endl;
+		cin >> n;
+	} while (n <= 0);
+	
+	for (int i = 1; i <= n; i++)
+	{
+		suma = suma + ((pow((-1), (i + 1))) / ((2 * i) - 1));
+	}
+
+	//SALIDA
+	sumaT = 4 * suma;
+	cout << "Suma: " << sumaT << endl;;
+
+	_getch();
+}
