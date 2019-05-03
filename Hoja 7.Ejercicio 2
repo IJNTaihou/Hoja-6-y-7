@@ -1,1 +1,238 @@
+//Hoja 7.Ejercicio 2
+include <iostream>
+#include <stdio.h>
+#include <conio.h>
 
+using namespace std;
+
+int main()
+{
+	int i;
+	char destino; 
+	char transporte; 
+	int cantidad; 
+	int sumCajamarca = 0;
+	int sumHuaraz = 0;
+	int sumTacna = 0;
+
+	float monto;
+	float sumMontos;
+	sumMontos = 0;
+
+	int precioSoles; 
+	int precioDolares; 
+
+	int sumPrecioBus; 
+	sumPrecioBus = 0;
+	int sumPrecioAvion; 
+	sumPrecioAvion = 0;
+
+	int hotel; 
+	int sumTotal;
+	int n1;
+	i = 1;
+
+	do
+	{
+		cout << "-------------------------------------------------------------------------------- \n";
+		cout << endl;
+		printf("Ingrese el destino *Mayuscula* (C: Cajamarca, T: Tacna, H: Huaraz, F: Fin): ");
+		cin >> destino;
+
+		if (destino == 'F')
+		{
+			n1 = 2;
+		}
+		if (destino != 'F')
+		{
+			if (destino == 'C' || destino == 'T')
+			{
+				if (destino == 'C')
+				{
+					sumCajamarca++;
+					n1 = 3;
+				}
+				if (destino == 'T')
+				{
+					sumTacna++;
+					n1 = 3;
+				}
+
+				do
+				{
+					printf("Ingrese el tipo de transporte(B: Bus, A: Avion): ");
+					cin >> transporte;
+
+					if (transporte == 'B' || transporte == 'A')
+					{
+						if (destino == 'C' && transporte == 'B')
+						{
+							precioSoles = 165;
+							hotel = 20;
+							n1 = 4;
+						}
+						if (destino == 'C' && transporte == 'A')
+						{
+							precioDolares = 84;
+							hotel = 20;
+							n1 = 4;
+						}
+						if (destino == 'T' && transporte == 'B')
+						{
+							precioSoles = 138;
+							hotel = 30;
+							n1 = 4;
+						}
+						if (destino == 'T' && transporte == 'A')
+						{
+							precioDolares = 133;
+							hotel = 30;
+							n1 = 4;
+						}
+
+
+						do
+						{
+							printf("Ingrese la cantidad de dias del viaje (debe ser mayor a 2 dias) : ");
+							cin >> cantidad;
+							cout << endl;
+
+							if (cantidad >= 3)
+							{
+								if (transporte == 'A')
+								{
+									monto = (hotel*cantidad*2.68) + (precioDolares*2.68);
+								}
+								if (transporte == 'B' || destino == 'H')
+								{
+									monto = (hotel*cantidad*2.68) + (precioSoles);
+								}
+
+								cout << "Monto a pagar: " << monto << endl;
+
+								sumMontos = sumMontos + monto * (i / i);
+								sumPrecioBus = sumPrecioBus + precioSoles * (i / i);
+								sumPrecioAvion = sumPrecioAvion + precioDolares * (i / i);
+								i++;
+
+
+
+								n1 = 1;
+
+							}
+							else
+							{
+								cout << endl;
+								cout << "ERROR \n";
+								cout << "Ingrese una cantidad de dias mayor a 2 \n";
+								cout << endl;
+
+								n1 = 4;
+							}
+
+
+						} while (n1 == 4);
+
+					}
+					else
+					{
+						cout << endl;
+						cout << "ERROR \n";
+						cout << "Ingrese uno de los tipos de transporte propuestos \n";
+						cout << endl;
+						n1 = 3;
+					}
+				} while (n1 == 3);
+			}
+			if (destino != 'C' && destino != 'T' && destino != 'H')
+			{
+				cout << endl;
+				cout << "ERROR \n";
+				cout << "Ingrese uno de los destinos propuestos en mayusculas \n";
+				cout << endl;
+				n1 = 1;
+			}
+			if (destino == 'H')
+			{
+				sumHuaraz++;
+				precioSoles = 63;
+				hotel = 30;
+				n1 = 4;
+
+				do
+				{
+					printf("Ingrese la cantidad de dias del viaje (debe ser mayor a 2 dias) : ");
+					cin >> cantidad;
+					cout << endl;
+
+					if (cantidad >= 3)
+					{
+						if (transporte == 'A')
+						{
+							monto = (hotel*cantidad*2.68) + (precioDolares*2.68);
+						}
+						if (transporte == 'B' || destino == 'H')
+						{
+							monto = (hotel*cantidad*2.68) + (precioSoles);
+						}
+
+						cout << "Monto a pagar: " << monto << endl;
+
+						sumMontos = sumMontos + monto * (i / i);
+						sumPrecioBus = sumPrecioBus + precioSoles * (i / i);
+						sumPrecioAvion = sumPrecioAvion + precioDolares * (i / i);
+						i++;
+
+
+
+						n1 = 1;
+
+					}
+					else
+					{
+						cout << endl;
+						cout << "ERROR \n";
+						cout << "Ingrese una cantidad de dias mayor a 2 \n";
+						cout << endl;
+
+						n1 = 4;
+					}
+
+
+				} while (n1 == 4);
+			}
+
+		}
+
+
+	} while (n1 == 1);
+
+    sumTotal = sumCajamarca + sumTacna + sumHuaraz;
+
+	int sum30; 
+	sum30 = sumTacna + sumHuaraz;
+
+	float porcHuaraz; 
+	porcHuaraz = (100 * sumHuaraz) / sumTotal;
+
+	cout << endl;
+
+	cout << endl;
+
+	cout << "----------------------------------------------- \n";
+
+	cout << "Cantidad de viajeros que van a un hotel de US$30: " << sum30 << endl;
+
+	cout << "Porcentaje de viajeros que elegieron viajar a Huaraz: " << porcHuaraz << "%" << endl;
+
+	cout << "Ingreso total de dinero en nuevo soles por bus: S/" << sumPrecioBus << endl;
+
+	cout << "Ingreso total de dolares por avion: $" << sumPrecioAvion << endl;
+
+	cout << "Ingreso total en Nuevos Soles: S/" << sumMontos << endl;
+
+
+
+	_getch();
+
+}
