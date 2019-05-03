@@ -1,6 +1,5 @@
 //Hoja 7.Ejercicio 2
 include <iostream>
-#include <stdio.h>
 #include <conio.h>
 
 using namespace std;
